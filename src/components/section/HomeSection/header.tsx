@@ -1,0 +1,130 @@
+"use client";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { MdClose, MdMenu } from "react-icons/md";
+import Image from "next/image";
+import img1 from "@/components/assets/Images/DC_logo2.png";
+import { easeInOut, motion } from "framer-motion";
+import { Navlinks, Sidebarlinks } from "@/components/constant/index";
+
+const Header = () => {
+  const [navIsLive, setNavIsLive] = useState(false);
+  const handleClick = () => {
+    setNavIsLive(!navIsLive);
+    console.log(navIsLive);
+  };
+
+  const [isScrolled, setIsScrolled] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 1000);
+      console.log(isScrolled);
+      console.log("Scroll Position: ", window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div
+      className={`relative top-0 left-0 w-full h-[10vh] flex items-center justify-center shadow-md  z-50 text-[#000000] ${
+        isScrolled ? "sticky bg-background" : " bg-transparent"
+      }`}
+    >
+      <div className="w-full flex items-center justify-between mx-[40px]">
+        {/* Logo */}
+        <div className="text-4xl text-primary cursor-pointer outline-none">
+          <Link href={"/"}>
+            <Image src={img1} alt="/" width={50} />
+          </Link>
+        </div>
+
+        <div className="flex justify-center items-center gap-12">
+          {/* NavLinks */}
+          <nav>
+            <div className="flex justify-between gap-8 items-center max-sm:hidden max-[690px]:hidden max-[1030px]:hidden max-2000px:flex text-[10px]">
+              {Navlinks.map((link, id) => (
+                <Link key={id} className={link.class} href={link.href}>
+                  <motion.div
+                    initial={{ scale: 1 }}
+                    whileHover={{
+                      scale: 1.2,
+                      color: "var(--primary)",
+                      fontWeight: 600,
+                    }}
+                    transition={{ duration: 0.2, ease: easeInOut }}
+                  >
+                    {link.label}
+                  </motion.div>
+                </Link>
+              ))}
+            </div>
+
+            <div>
+              <div className=" hidden max-[1030px]:flex">
+                <motion.aside
+                  initial={{ x: "100vw" }}
+                  animate={{ x: navIsLive ? 0 : "200vw" }}
+                  transition={{ ease: "easeInOut", duration: 0.3 }}
+                  className="sidebar relative"
+                >
+                  <nav className="nav">
+                    <ul>
+                      {Sidebarlinks.map((link, i) => (
+                        <li key={i}>
+                          <Link href={link.href} className="a">
+                            {link.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </nav>
+                </motion.aside>
+              </div>
+            </div>
+          </nav>
+
+          {/* Call to Action Button */}
+          <div className="flex gap-7">
+            <button className="primary-button flex flex-row gap-1 justify-center items-center max-sm:hidden max-md:flex max-[690px]:flex">
+              {" "}
+              <Link className="text-[10px]" href="/contact">
+                Join the family{" "}
+              </Link>
+            </button>
+
+            <div
+              onClick={handleClick}
+              className="hidden text-2xl max-sm:flex max-[1030px]:flex sm:text-3xl lg:text-5xl relative transition-all duration-[2s]"
+            >
+              {navIsLive ? (
+                <motion.div
+                  initial={{ rotate: 0, scale: 1 }}
+                  animate={{ rotate: 180, scale: 1.2 }}
+                  exit={{ rotate: 0, scale: 1 }}
+                  transition={{ duration: 0.3, ease: easeInOut }}
+                >
+                  <MdClose />
+                </motion.div>
+              ) : (
+                <motion.div
+                  initial={{ rotate: -180, scale: 1 }}
+                  animate={{ rotate: 0, scale: 1.2 }}
+                  exit={{ rotate: -180, scale: 1 }}
+                  transition={{ duration: 0.3, ease: easeInOut }}
+                >
+                  <MdMenu />
+                </motion.div>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>{" "}
+    </div>
+  );
+};
+
+export default Header;

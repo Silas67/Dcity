@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline:opsz,wght@10..72,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: #142176;
+  --muted: #c2c2c2;
+  --muted-foreground: #444444;
+  --destructive: #b41616;
+  --secondary: #c19503;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+    --primary: #142176;
+    --muted: #c2c2c2;
+    --muted-foreground: #444444;
+    --destructive: #b41616;
+    --secondary: #c19503;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Manrope", serif;
+  transition-property: opacity, background-color, transform, filter;
+  transition-duration: 500ms;
+}
+
+.entbody2 {
+  margin: 0;
+  color: #1e1e1e;
+  background-color: var(--secondary);
+  background: repeating-linear-gradient(
+      to right,
+      transparent 0 150px,
+      #666ea42e 150px 151px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 150px,
+      #666ea42e 150px 151px
+    ),
+    linear-gradient(to bottom, #142176, #142176);
+}
+
+.entbody {
+  margin: 0;
+  color: #1e1e1e;
+  background-color: var(--secondary);
+  background: repeating-linear-gradient(
+      to right,
+      transparent 0 150px,
+      #666ea42e 150px 151px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0 150px,
+      #666ea42e 150px 151px
+    ),
+    linear-gradient(to bottom, #f4f4f4, #fff);
+}
+
+/* Utils */
+.primary-button {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  padding: 12px 12px;
+  border: 1px solid var(--primary);
+  border-radius: 12px;
+  transition: all 500ms;
+
+  &:hover {
+    color: var(--primary);
+    background-color: var(--background);
+  }
+}
+
+.secondary-button {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: white;
+  padding: 12px 12px;
+  border: 1px solid var(--primary);
+  transition: all 500ms;
+
+  &:hover {
+    background-color: var(--primary);
+    color: var(--background);
+  }
+}
+
+.text {
+  font-size: clamp(3.8rem, 7.5vw, 6.8rem);
+  line-height: clamp(3.8rem, 7.5vw, 6.8rem);
+}
+
+.bb {
+  border: #0a0a0a 1px solid;
+}
+
+.mask-container {
+  -webkit-mask-image: url("/Heart3.svg");
+  mask-image: url("/Heart3.svg");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.aboutmask {
+  -webkit-mask-image: url("/Wmask3.png");
+  mask-image: url("/Wmask3.png");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.Pmask {
+  -webkit-mask-image: url("/Wmask2.png");
+  mask-image: url("/Wmask2.png");
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  transition: all 0.5s ease-in-out;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 400px;
+  height: fit-content;
+  background: var(--primary);
+  border-radius: 10px;
+  position: relative;
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card::after,
+.card::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-image: conic-gradient(
+    from var(--angle),
+    var(--primary),
+    #1f1fb9,
+    var(--primary)
+  );
+  position: absolute;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  padding: 3px;
+  border-radius: 10px;
+  animation: 3s spin linear infinite;
+}
+
+.card::before {
+  filter: blur(50px);
+  opacity: 1;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Transitions */
+
+.page-transition {
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0);
+  filter: blur(40px);
+}
+
+#intro {
+  animation: fadeOut 7s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 5s ease-in-out;
+  animation-delay: 4.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    scale: 1;
+  }
+  100% {
+    scale: 1500;
+  }
+}
+
+#loading1 {
+  animation: loading1 2s ease-in-out infinite;
+}
+
+#loading2 {
+  animation: loading2 2s ease-in-out infinite;
+}
+
+@keyframes loading1 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes loading2 {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Transition */
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  background: var(--background);
+  font-size: 0.65em;
+}
+
+.nav {
+  position: relative;
+  margin: 0 15%;
+  text-align: left;
+  top: 15%;
+  font-weight: bold;
+  z-index: 100 !important;
+}
+
+.nav ul {
+  list-style-type: none;
+
+  li {
+    position: relative;
+    margin: 3.2em 0;
+  }
+
+  a {
+    line-height: 4em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.2em;
+    color: var(--primary);
+    display: block;
+    transition: all ease-out 400ms;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 0.2em;
+      background: var(--foregrounds);
+      left: 0;
+      bottom: 0;
+      background-image: linear-gradient(to right, #ffffff, var(--primary));
+    }
+    &:active {
+      color: #c75151;
+    }
+    &:not(:active):hover {
+      color: #d69090;
+    }
+    &:not(:active)::after {
+      opacity: 0.2;
+      color: rgb(21, 7, 7);
+    }
+  }
+}
+/* Sidebar end */
+
+/* Backgrounds and images */
+.bg-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../components/assets/Images/Hero2.png);
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+}
