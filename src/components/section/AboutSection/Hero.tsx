@@ -16,17 +16,9 @@ const Hero = () => {
           {" "}
           About Us{" "}
         </h1>
-        <p className="text-gray-400 italic tracking-[0.5em] font-thin p-2">
+        <p className="text-gray-400 italic tracking-[0.2em] font-thin p-2">
           Rasing Leaders that transform Society
         </p>
-        <div className="w-full flex items-center justify-center gap-32 pt-8 max-sm:gap-14">
-          <button className="w-fit px-4 h-[40px] font-semibold font-heading text-sm bg-neutral-700 text-white rounded-lg hover:bg-primary transition-all duration-500 ease-in-out">
-            <Link href={"/about"}>Our Faith</Link>
-          </button>
-          <button className="w-fit px-4 h-[40px] font-semibold font-heading text-sm bg-neutral-700 text-white rounded-lg hover:bg-primary transition-all duration-500 ease-in-out">
-            <Link href={"/about"}>Our Core Values</Link>
-          </button>
-        </div>
       </div>
 
       <div className="absolute w-full h-full bg-black bg-opacity-80 z-10"></div>

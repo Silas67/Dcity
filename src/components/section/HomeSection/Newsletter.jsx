@@ -3,9 +3,9 @@ import { motion } from "framer-motion";
 
 const Newsletters = () => {
   return (
-    <div className="w-full h-[30vh] flex items-center justify-center bg-[#ffffff] text-[#232424] sm:px-9 max-sm:px-8 entbody">
-      <div className="w-full max-sm:gap-6 flex items-center justify-between max-sm:flex-col">
-        <div className="w-1/2 h-full flex items-center justify-center">
+    <div className="w-full flexcent text-[#232424] px-[100px] max-sm:px-8 pb-24">
+      <div className="w-full max-sm:gap-6 flex items-center justify-between max-sm:flex-col gap-8 px-[50px]">
+        <div className=" h-full flex items-center justify-center">
           <motion.h1
             initial={{ x: -20, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
@@ -17,13 +17,14 @@ const Newsletters = () => {
               initial={{ x: -20, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeInOut", delay: 0.6 }}
-              className="text-sm block italic text-amber-500 max-sm:text-[12px]"
+              className="text-sm block font-light italic text-amber-500 max-sm:text-[12px]"
             >
               Join Our Mailing list
             </motion.span>
           </motion.h1>
         </div>
-        <div className="w-1/2 h-full flex items-center justify-center border-[#073029] max-sm:w-full flex-col max-sm:flex-col relative">
+
+        <div className="flex-1 h-full flex items-center justify-center border-[#073029] max-sm:w-full flex-col max-sm:flex-col relative">
           <div className="w-full flex justify-between items-center ">
             <input
               type="email"

@@ -15,7 +15,7 @@ const Aids = () => {
         viewport={{ once: true }}
         className="text-center "
       >
-        <h1 className="font-semibold text-4xl font-heading mt-4">
+        <h1 className="font-semibold text-5xl font-heading mt-4">
           Have A Prayer Request Or Testimony?
         </h1>
         <p className="text-gray-600 italic text-sm p-2">

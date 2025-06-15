@@ -28,11 +28,11 @@ const Footer = () => {
           <p className="text-gray-700 text-sm max-sm:text-[10px]">
             Follow us on our social media events for up-to-date events
           </p>
-          <div className="w-fit flex-wrap flex gap-5">
+          <div className="w-fit flex-wrap flex ">
             {Socials.map((item, id) => (
               <div
                 key={id}
-                className="w-fit h-fit m-1 p-2 bg-white rounded-full flex items-center justify-center mt-3"
+                className="w-fit h-fit m-1 p-2 bg-transparent border border-foreground rounded-full flex items-center justify-center mt-3"
               >
                 {item.name}
               </div>
@@ -88,10 +88,7 @@ const Footer = () => {
 
       <div className="text-[12px] cursor-default w-full border-t-[1px] border-white p-4 flex justify-between max-sm:text-[10px] max-sm:gap-4 my-2">
         <p>@ CopyRight. All rights reserved</p>
-        <div>
-          BlinkzSpark 15 E I Gomos Road, Shandam close, Abacha road, Mararaba
-          Nassarawa | Tel:(+234) 703 380 9119
-        </div>
+        <div>Dominion City, Gudu | Tel:(+234) 703 380 9119</div>
       </div>
     </footer>
   );

@@ -20,8 +20,10 @@ const Giving = ({ Bg }: { Bg: boolean }) => {
         viewport={{ once: true }}
         className="w-full text-center p-12"
       >
-        <h1 className="text-4xl font-semibold uppercase">Online Giving</h1>
-        <p className="text-sm font-heading p-2 text-gray-300">
+        <h1 className="text-6xl font-semibold uppercase font-heading">
+          Online Giving
+        </h1>
+        <p className="text-md tracking-wide text-gray-500">
           Honor Pastor David: Support Partnerships & Kingdom Projects
         </p>
       </motion.div>
@@ -44,18 +46,26 @@ const Giving = ({ Bg }: { Bg: boolean }) => {
                 <Image
                   src={item.img}
                   alt="Image"
-                  className="relative object-cover w-full h-full"
+                  className="object-cover w-full h-full"
                 />
-                <div className="absolute w-full h-full bg-black bg-opacity-60 flex items-center justify-center flex-col">
-                  <div className="lg:text-4xl sm:text-3xl text-white">
-                    {item.icon}
-                  </div>
-                  <div className="lg:text-2xl sm:text-xl text-white">
-                    {item.heading}
-                  </div>
-                  <button className="w-fit px-4 h-[40px] font-semibold font-heading text-sm border border-primary bg-secondary text-white rounded-xl hover:bg-white hover:text-primary transition-all duration-500 ease-in-out my-2">
-                    <Link href={"/"}>Give</Link>
-                  </button>
+                <div className="absolute w-full h-full bg-black bg-opacity-60 flex  justify-center flex-col">
+                  <motion.div
+                    initial={{ y: 20, scale: 1.1, opacity: 0 }}
+                    whileInView={{ y: 0, scale: 1, opacity: 1 }}
+                    transition={{ ease: "easeInOut", duration: 0.7 }}
+                    viewport={{ once: true }}
+                    className="w-full h-full flex items-center justify-center flex-col"
+                  >
+                    <div className="lg:text-4xl sm:text-3xl text-white">
+                      {item.icon}
+                    </div>
+                    <div className="lg:text-2xl sm:text-xl text-white">
+                      {item.heading}
+                    </div>
+                    <button className="w-fit px-4 h-[40px] font-semibold font-heading text-sm border border-primary bg-secondary text-white rounded-xl hover:bg-white hover:text-primary transition-all duration-500 ease-in-out my-2">
+                      <Link href={"/"}>Give</Link>
+                    </button>
+                  </motion.div>
                 </div>
               </div>
               <div className="-mt-12">
@@ -123,7 +133,7 @@ const Giving = ({ Bg }: { Bg: boolean }) => {
           viewport={{ once: true }}
           className="mt-16 mb-10"
         >
-          <h1 className="text-[20px] max-sm:text-[16px] text-center px-4">
+          <h1 className="text-[16px] max-sm:text-[16px] text-center px-4">
             Pay your <span className="text-[#e3c632]">Firstfruits</span>,
             Offerings, Tithes, Vows & Donations using any of the meduim shown
             below

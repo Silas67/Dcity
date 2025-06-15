@@ -10,7 +10,7 @@ const Ministry = () => {
         <h1 className="text-[4rem] w-[70%] leading-[1] text-center font-bold font-type max-sm:text-[2rem]">
           The Church
         </h1>
-        <div className="flex items-center justify-evenly w-full pt-2 max-sm:flex-col md:flex-col lg:flex-row-reverse">
+        <div className="flex items-start justify-evenly w-full pt-6 max-sm:flex-col md:flex-col lg:flex-row-reverse">
           <div>
             <div className="sm:w-[450px] sm:h-[450px] overflow-hidden Pmask flex items-center justify-center ">
               <Image

@@ -37,12 +37,12 @@ const AboutChurch = () => {
           For Your Life
         </h1>
         <div className="flex items-center justify-evenly w-full pt-2 max-sm:flex-col md:flex-col lg:flex-row">
-          <div>
-            <div className="sm:w-[450px] sm:h-[450px] overflow-hidden aboutmask flex items-center justify-center ">
+          <div className="">
+            <div className="w-[300px] h-[300px] rounded-[10px] overflow-hidden ">
               <Image
                 src={img}
                 alt="image"
-                className="object-cover w-full h-full object-top"
+                className="object-cover w-full h-full"
               />
             </div>
           </div>

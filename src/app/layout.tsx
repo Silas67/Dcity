@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
-
+import { Geist } from "next/font/google";
+import { Darker_Grotesque } from "next/font/google";
+import { Providers } from "./providers";
 import "./globals.css";
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+
+const darker = Darker_Grotesque({
+  variable: "--font-darker",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: "Dominion City Abuja Headquaters",
@@ -15,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={``}>{children}</body>
+      <body className={`${geist.variable} ${darker.variable}`}>
+        <Providers> {children}</Providers>
+      </body>
     </html>
   );
 }

@@ -9,34 +9,34 @@ import { Navlinks, Sidebarlinks } from "@/components/constant/index";
 
 const Header = () => {
   const [navIsLive, setNavIsLive] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const handleClick = () => {
     setNavIsLive(!navIsLive);
     console.log(navIsLive);
   };
 
-  const [isScrolled, setIsScrolled] = useState(true);
-
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 1000);
-      console.log(isScrolled);
-      console.log("Scroll Position: ", window.scrollY);
+      setIsScrolled(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   return (
     <div
-      className={`relative top-0 left-0 w-full h-[10vh] flex items-center justify-center shadow-md  z-50 text-[#000000] ${
-        isScrolled ? "sticky bg-background" : " bg-transparent"
+      className={`fixed top-0 left-0 w-full h-[10vh] flex items-center justify-center  z-50  transition-all duration-300 ${
+        isScrolled
+          ? "bg-background text-foreground shadow-md"
+          : " bg-transparent text-white"
       }`}
     >
       <div className="w-full flex items-center justify-between mx-[40px]">
         {/* Logo */}
-        <div className="text-4xl text-primary cursor-pointer outline-none">
+        <div className="text-4xl cursor-pointer outline-none">
           <Link href={"/"}>
             <Image src={img1} alt="/" width={50} />
           </Link>
@@ -63,6 +63,7 @@ const Header = () => {
               ))}
             </div>
 
+            {/* Sidebar */}
             <div>
               <div className=" hidden max-[1030px]:flex">
                 <motion.aside

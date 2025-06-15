@@ -18,9 +18,8 @@ export default {
         secondary: "var(--secondary)",
       },
       fontFamily: {
-        heading: ["Montserrat", "serif"],
-        type: [ "Playfair Display", 'serif']
-
+        heading: "var(--font-darker)",
+        clash: ["ClashGrotesk-Variable", "sans-serif"]
       }
     },
   },

@@ -5,6 +5,7 @@ const useLenis = () => {
   useEffect(() => {
     const lenis = new Lenis({
       smooth: true,
+      duration: 2,
     });
 
     function raf(time) {

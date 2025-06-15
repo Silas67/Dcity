@@ -31,43 +31,9 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: "Manrope", serif;
+  font-family: "ClashGrotesk-Variable", "sans-serfi";
   transition-property: opacity, background-color, transform, filter;
   transition-duration: 500ms;
-}
-
-.entbody2 {
-  margin: 0;
-  color: #1e1e1e;
-  background-color: var(--secondary);
-  background: repeating-linear-gradient(
-      to right,
-      transparent 0 150px,
-      #666ea42e 150px 151px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0 150px,
-      #666ea42e 150px 151px
-    ),
-    linear-gradient(to bottom, #142176, #142176);
-}
-
-.entbody {
-  margin: 0;
-  color: #1e1e1e;
-  background-color: var(--secondary);
-  background: repeating-linear-gradient(
-      to right,
-      transparent 0 150px,
-      #666ea42e 150px 151px
-    ),
-    repeating-linear-gradient(
-      to bottom,
-      transparent 0 150px,
-      #666ea42e 150px 151px
-    ),
-    linear-gradient(to bottom, #f4f4f4, #fff);
 }
 
 /* Utils */
@@ -193,6 +159,12 @@ body {
   to {
     --angle: 360deg;
   }
+}
+
+.flexcent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Transitions */
@@ -329,9 +301,29 @@ body {
 
 /* Backgrounds and images */
 .bg-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../components/assets/Images/Hero2.png);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../components/assets/Images/Hero1.jpg);
   background-size: cover;
-  background-position: top center;
+  background-position: bottom center;
   background-attachment: fixed;
+}
+.bg-Cta {
+  background:
+    linear-gradient(#0000009e, #0000009e),
+    url(../components/assets/Images/Hero4.jpg);
+  background-size: cover;
+  background-position: bottom center;
+}
+
+/* fonts */
+@font-face {
+  font-family: "ClashGrotesk-Variable";
+  src:
+    url("/fonts/fonts/ClashGrotesk-Variable.woff2") format("woff2"),
+    url("/fonts/ClashGrotesk-Variable.woff") format("woff"),
+    url("/fonts/ClashGrotesk-Variable.ttf") format("truetype");
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
 }
